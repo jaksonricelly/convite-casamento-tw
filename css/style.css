@@ -1,35 +1,4 @@
 /* =========================================
-   RESET
-   ========================================= */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-
-/* =========================================
-   CONFIGURAÇÃO GERAL
-   ========================================= */
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-
-    background-color: #111;
-
-    font-family: Arial, sans-serif;
-
-    overflow-x: hidden;
-}
-
-
-/* =========================================
    TELA INICIAL DO ENVELOPE
    ========================================= */
 
@@ -43,8 +12,6 @@ body {
     width: 100vw;
     height: 100dvh;
 
-    background: #111;
-
     display: flex;
 
     align-items: flex-start;
@@ -52,22 +19,54 @@ body {
 
     overflow: hidden;
 
+    /*
+     * A própria foto ocupa todo o fundo.
+     * Isso elimina qualquer área preta.
+     */
+
+    background-image:
+        url("../imagens/couple-hero.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
     transition:
         opacity 0.8s ease,
         visibility 0.8s ease;
 }
 
 
+/* =========================================
+   CAMADA ESCURA SOBRE O FUNDO
+   ========================================= */
+
+.tela-envelope::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 0;
+
+    background:
+        rgba(20, 12, 7, 0.35);
+
+    pointer-events: none;
+}
+
 
 /* =========================================
-   ENVELOPE
+   ENVELOPE PRINCIPAL
    ========================================= */
+
 .envelope {
     position: relative;
 
-    /*
-     * A arte original é 700 × 1120.
-     */
+    z-index: 1;
 
     width: min(
         100vw,
@@ -80,11 +79,12 @@ body {
 
     overflow: hidden;
 
-    background: #111;
+    background: transparent;
 }
 
+
 /* =========================================
-   FOTO DO CASAL
+   FOTO PRINCIPAL
    ========================================= */
 
 .hero-envelope {
@@ -139,6 +139,7 @@ body {
         opacity 0.9s ease;
 
     appearance: none;
+
     -webkit-appearance: none;
 }
 
@@ -160,11 +161,13 @@ body {
     -webkit-user-drag: none;
 }
 
+
 /* =========================================
-   EFEITO DE ABERTURA
+   ANIMAÇÃO DE ABERTURA
    ========================================= */
 
-.tela-envelope.abrindo .tampa-envelope {
+.tela-envelope.abrindo
+.tampa-envelope {
 
     transform:
         translateY(-72%)
@@ -173,8 +176,9 @@ body {
     opacity: 0;
 }
 
+
 /* =========================================
-   ESCONDER TELA DE ABERTURA
+   ESCONDER ENVELOPE
    ========================================= */
 
 .tela-envelope.fechada {
@@ -185,7 +189,6 @@ body {
 
     pointer-events: none;
 }
-
 
 
 /* =========================================
@@ -222,34 +225,7 @@ body {
     pointer-events: auto;
 
     transform: translateY(0);
-
 }
-
-
-/* =========================================
-   CELULAR
-   ========================================= */
-
-@media (max-width: 700px) {
-
-.envelope {
-
-        /*
-         * O envelope passa a caber tanto
-         * na largura quanto na altura da tela.
-         */
-
-        width: min(
-            100vw,
-            calc(100dvh * 0.625)
-        );
-
-        aspect-ratio: 700 / 1120;
-    }
-
-}
-
-
 
 /* =========================================
    CONTAINER PRINCIPAL
