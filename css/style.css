@@ -41,14 +41,13 @@ body {
     z-index: 20000;
 
     width: 100vw;
-    height: 100vh;
+    height: 100dvh;
 
     background: #111;
 
     display: flex;
 
     align-items: flex-start;
-
     justify-content: center;
 
     overflow: hidden;
@@ -59,24 +58,30 @@ body {
 }
 
 
+
 /* =========================================
    ENVELOPE
    ========================================= */
-
 .envelope {
     position: relative;
 
-    width: min(100vw, 700px);
+    /*
+     * A arte original é 700 × 1120.
+     */
 
-    height: calc(min(100vw, 700px) * 1120 / 700);
+    width: min(
+        100vw,
+        calc(100dvh * 0.625)
+    );
 
-    max-height: 100vh;
+    aspect-ratio: 700 / 1120;
+
+    flex-shrink: 0;
 
     overflow: hidden;
 
     background: #111;
 }
-
 
 /* =========================================
    FOTO DO CASAL
@@ -85,13 +90,14 @@ body {
 .hero-envelope {
     position: absolute;
 
-    top: 0;
-    left: 0;
+    inset: 0;
 
     width: 100%;
-    height: auto;
+    height: 100%;
 
     display: block;
+
+    object-fit: fill;
 
     z-index: 1;
 }
@@ -108,11 +114,9 @@ body {
     left: 0;
 
     width: 100%;
-
     height: auto;
 
     padding: 0;
-
     margin: 0;
 
     border: none;
@@ -135,7 +139,6 @@ body {
         opacity 0.9s ease;
 
     appearance: none;
-
     -webkit-appearance: none;
 }
 
@@ -157,7 +160,6 @@ body {
     -webkit-user-drag: none;
 }
 
-
 /* =========================================
    EFEITO DE ABERTURA
    ========================================= */
@@ -169,9 +171,7 @@ body {
         rotateX(28deg);
 
     opacity: 0;
-
 }
-
 
 /* =========================================
    ESCONDER TELA DE ABERTURA
@@ -184,8 +184,8 @@ body {
     visibility: hidden;
 
     pointer-events: none;
-
 }
+
 
 
 /* =========================================
@@ -232,12 +232,19 @@ body {
 
 @media (max-width: 700px) {
 
-    .envelope {
+.envelope {
 
-        width: 100vw;
+        /*
+         * O envelope passa a caber tanto
+         * na largura quanto na altura da tela.
+         */
 
-        height: calc(100vw * 1120 / 700);
+        width: min(
+            100vw,
+            calc(100dvh * 0.625)
+        );
 
+        aspect-ratio: 700 / 1120;
     }
 
 }
