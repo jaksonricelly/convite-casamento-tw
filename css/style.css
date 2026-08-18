@@ -1,0 +1,1245 @@
+/* =========================================
+   RESET
+   ========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   CONFIGURAÇÃO GERAL
+   ========================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    background-color: #111;
+
+    font-family: Arial, sans-serif;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   TELA INICIAL DO ENVELOPE
+   ========================================= */
+
+.tela-envelope {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 20000;
+
+    width: 100vw;
+    height: 100vh;
+
+    background: #111;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+    transition:
+        opacity 0.8s ease,
+        visibility 0.8s ease;
+}
+
+
+/* =========================================
+   ENVELOPE
+   ========================================= */
+
+.envelope {
+    position: relative;
+
+    width: min(100vw, 700px);
+
+    height: calc(min(100vw, 700px) * 1120 / 700);
+
+    max-height: 100vh;
+
+    overflow: hidden;
+
+    background: #111;
+}
+
+
+/* =========================================
+   FOTO DO CASAL
+   ========================================= */
+
+.hero-envelope {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: auto;
+
+    display: block;
+
+    z-index: 1;
+}
+
+
+/* =========================================
+   TAMPA DO ENVELOPE
+   ========================================= */
+
+.tampa-envelope {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    height: auto;
+
+    padding: 0;
+
+    margin: 0;
+
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    z-index: 5;
+
+    transform-origin: 50% 0%;
+
+    transition:
+        transform 1.4s cubic-bezier(
+            0.65,
+            0,
+            0.35,
+            1
+        ),
+        opacity 0.9s ease;
+
+    appearance: none;
+
+    -webkit-appearance: none;
+}
+
+
+/* =========================================
+   IMAGEM DA TAMPA
+   ========================================= */
+
+.tampa-envelope img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    pointer-events: none;
+
+    user-select: none;
+
+    -webkit-user-drag: none;
+}
+
+
+/* =========================================
+   EFEITO DE ABERTURA
+   ========================================= */
+
+.tela-envelope.abrindo .tampa-envelope {
+
+    transform:
+        translateY(-72%)
+        rotateX(28deg);
+
+    opacity: 0;
+
+}
+
+
+/* =========================================
+   ESCONDER TELA DE ABERTURA
+   ========================================= */
+
+.tela-envelope.fechada {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================
+   LANDING PAGE INICIALMENTE ESCONDIDA
+   ========================================= */
+
+#landing-page {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transform: translateY(20px);
+
+    transition:
+        opacity 1.2s ease,
+        transform 1.2s ease,
+        visibility 1.2s ease;
+}
+
+
+/* =========================================
+   LANDING PAGE APÓS ABERTURA
+   ========================================= */
+
+#landing-page.visivel {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+    transform: translateY(0);
+
+}
+
+
+/* =========================================
+   CELULAR
+   ========================================= */
+
+@media (max-width: 700px) {
+
+    .envelope {
+
+        width: 100vw;
+
+        height: calc(100vw * 1120 / 700);
+
+    }
+
+}
+
+
+
+/* =========================================
+   CONTAINER PRINCIPAL
+   ========================================= */
+
+.convite {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* =========================================
+   CADA PÁGINA DO CONVITE
+   ========================================= */
+
+.pagina {
+    position: relative;
+
+    width: min(100vw, 700px);
+
+    aspect-ratio: 700 / 1120;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   IMAGENS DE FUNDO
+   ========================================= */
+
+.pagina-1 {
+    background-image: url("../imagens/1.jpg");
+}
+
+.pagina-2 {
+    background-image: url("../imagens/2.jpg");
+}
+
+.pagina-3 {
+    background-image: url("../imagens/3.jpg");
+}
+
+.pagina-4 {
+    background-image: url("../imagens/4.jpg");
+}
+
+
+/* =========================================
+   CAMADA PARA ELEMENTOS SOBREPOSTOS
+   ========================================= */
+
+.conteudo-sobreposto {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   DESKTOP
+   ========================================= */
+
+@media (min-width: 701px) {
+
+    body {
+        background-color: #222;
+    }
+
+    .pagina {
+        width: 700px;
+        height: 1120px;
+        flex-shrink: 0;
+    }
+}
+
+
+/* =========================================
+   CELULAR
+   ========================================= */
+
+@media (max-width: 700px) {
+
+    .pagina {
+        width: 100vw;
+        height: auto;
+
+        aspect-ratio: 700 / 1120;
+    }
+}
+
+/* =========================================
+   CARROSSEL
+   ========================================= */
+
+.carrossel {
+    position: absolute;
+
+    /*
+     * POSIÇÃO DO CARROSSEL
+     *
+     * top controla a altura dentro da arte.
+     * left controla a posição horizontal.
+     */
+
+    top: 27%;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 52%;
+
+    height: 52%;
+
+    overflow: hidden;
+
+    pointer-events: auto;
+
+    /*
+     * Mantém as fotos centralizadas
+     */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* =========================================
+   FOTOS
+   ========================================= */
+
+.foto-carrossel {
+
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    opacity: 0;
+
+    transform: scale(1.02);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+
+    border-radius: 0;
+}
+
+
+/* =========================================
+   FOTO ATIVA
+   ========================================= */
+
+.foto-carrossel.ativa {
+
+    opacity: 1;
+
+    transform: scale(1);
+
+    z-index: 2;
+}
+
+
+/* =========================================
+   RESPONSIVIDADE
+   ========================================= */
+
+@media (max-width: 700px) {
+
+    .carrossel {
+
+        top: 27%;
+
+        width: 52%;
+
+        height: 52%;
+    }
+}
+
+/* =========================================
+   BOTÕES DO CONVITE
+   ========================================= */
+
+.botoes-convite {
+    position: absolute;
+
+    /*
+     * Posição dentro da arte 3.jpg
+     */
+
+    top: 51%;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 72%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 8px;
+
+    pointer-events: auto;
+}
+
+
+/* =========================================
+   BOTÃO
+   ========================================= */
+
+.botao-convite {
+    width: 70%;
+
+    padding: 0;
+
+    margin: 0;
+
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    display: block;
+
+    transition:
+        transform 0.2s ease,
+        filter 0.2s ease;
+}
+
+.botao-convite:first-child {
+  padding-top: 50px;
+}
+/* =========================================
+   IMAGEM DO BOTÃO
+   ========================================= */
+
+.botao-convite img {
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+
+    user-select: none;
+
+    -webkit-user-drag: none;
+}
+
+
+/* =========================================
+   EFEITO AO TOCAR / CLICAR
+   ========================================= */
+
+.botao-convite:active {
+    transform: scale(0.96);
+}
+
+
+/* =========================================
+   DESKTOP
+   ========================================= */
+
+@media (min-width: 701px) {
+
+    .botoes-convite {
+        width: 72%;
+    }
+}
+
+
+/* =========================================
+   CELULAR
+   ========================================= */
+
+@media (max-width: 700px) {
+
+    .botoes-convite {
+        width: 72%;
+
+        gap: 10px;
+    }
+}
+ /* =========================================
+    SISTEMA DE MODAIS
+    ========================================= */
+
+.modal-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 15px;
+
+    background: rgba(0, 0, 0, 0.72);
+
+    backdrop-filter: blur(5px);
+
+    -webkit-backdrop-filter: blur(5px);
+
+    overflow-y: auto;
+}
+
+
+/* =========================================
+   MODAL ABERTO
+   ========================================= */
+
+.modal-overlay.aberto {
+    display: flex;
+}
+
+
+/* =========================================
+   CAIXA PRINCIPAL
+   ========================================= */
+
+.modal {
+    position: relative;
+
+    width: min(100%, 500px);
+
+    max-height: calc(100vh - 30px);
+
+    background: #f7f2e8;
+
+    color: #51351f;
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 20px 70px rgba(0, 0, 0, 0.45);
+
+    animation: aparecerModal 0.25s ease;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* =========================================
+   ANIMAÇÃO
+   ========================================= */
+
+@keyframes aparecerModal {
+
+    from {
+        opacity: 0;
+        transform: scale(0.94);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+
+/* =========================================
+   CONTEÚDO
+   ========================================= */
+
+.modal-conteudo {
+    padding: 35px 25px 25px;
+
+    text-align: center;
+
+    overflow-y: auto;
+}
+
+
+/* =========================================
+   BOTÃO FECHAR
+   ========================================= */
+
+.modal-fechar {
+    position: absolute;
+
+    top: 8px;
+    right: 10px;
+
+    z-index: 20;
+
+    width: 42px;
+    height: 42px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: rgba(81, 53, 31, 0.1);
+
+    color: #51351f;
+
+    font-size: 30px;
+
+    line-height: 38px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.modal-fechar:hover {
+    background: rgba(81, 53, 31, 0.18);
+}
+
+
+.modal-fechar:active {
+    transform: scale(0.92);
+}
+
+
+/* =========================================
+   TÍTULOS
+   ========================================= */
+
+.modal h2 {
+    margin-bottom: 10px;
+
+    font-family: Georgia, serif;
+
+    font-size: 26px;
+
+    font-weight: normal;
+}
+
+
+.modal-subtitulo {
+    margin-bottom: 4px;
+
+    font-size: 16px;
+
+    font-weight: 600;
+}
+
+
+.modal-endereco {
+    margin-bottom: 20px;
+
+    font-size: 14px;
+
+    opacity: 0.8;
+}
+
+
+/* =========================================
+   LOCALIZAÇÃO
+   ========================================= */
+
+.mapa-container {
+    width: 100%;
+
+    height: 300px;
+
+    overflow: hidden;
+
+    border-radius: 10px;
+
+    margin-bottom: 18px;
+
+    background: #ddd;
+}
+
+
+.mapa-container iframe {
+    width: 100%;
+    height: 100%;
+
+    border: 0;
+
+    display: block;
+}
+
+
+/* =========================================
+   BOTÃO GOOGLE MAPS
+   ========================================= */
+
+.botao-mapa {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    min-height: 48px;
+
+    padding: 12px 20px;
+
+    border-radius: 7px;
+
+    background: #5b3a22;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    transition: transform 0.2s ease;
+}
+
+
+.botao-mapa:active {
+    transform: scale(0.97);
+}
+
+
+/* =========================================
+   MODAL DO FORMULÁRIO
+   ========================================= */
+
+.modal-formulario {
+    width: min(95vw, 680px);
+
+    height: min(95vh, 900px);
+
+    max-height: 95vh;
+}
+
+
+.formulario-conteudo {
+    display: flex;
+
+    flex-direction: column;
+
+    height: 100%;
+
+    padding: 35px 15px 15px;
+
+    overflow: hidden;
+}
+
+
+.formulario-conteudo h2 {
+    flex-shrink: 0;
+
+    margin-bottom: 5px;
+}
+
+
+.formulario-conteudo .modal-subtitulo {
+    flex-shrink: 0;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================================
+   CONTAINER DO GOOGLE FORMS
+   ========================================= */
+
+.formulario-container {
+    flex: 1;
+
+    min-height: 0;
+
+    width: 100%;
+
+    overflow-y: auto;
+
+    overflow-x: hidden;
+
+    border-radius: 8px;
+
+    background: white;
+}
+
+
+.formulario-container iframe {
+    display: block;
+
+    width: 100%;
+
+    min-height: 1392px;
+
+    height: 100%;
+
+    border: 0;
+}
+
+
+/* =========================================
+   MODAL PRESENTE
+   ========================================= */
+
+.modal-presente {
+    width: min(100%, 440px);
+}
+
+
+/* =========================================
+   PIX
+   ========================================= */
+
+.pix-container {
+    margin: 25px 0 18px;
+
+    padding: 18px;
+
+    background: rgba(100, 70, 40, 0.08);
+
+    border-radius: 8px;
+
+    border: 1px solid rgba(81, 53, 31, 0.12);
+}
+
+
+.pix-label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 12px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+}
+
+
+#chave-pix {
+    display: block;
+
+    word-break: break-all;
+
+    font-size: 16px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   BOTÃO COPIAR
+   ========================================= */
+
+.botao-copiar-pix {
+    width: 100%;
+
+    min-height: 48px;
+
+    padding: 13px 20px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #5b3a22;
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: transform 0.2s ease;
+}
+
+
+.botao-copiar-pix:active {
+    transform: scale(0.97);
+}
+
+
+/* =========================================
+   MENSAGEM DE CÓPIA
+   ========================================= */
+
+.mensagem-copiado {
+    min-height: 20px;
+
+    margin-top: 12px !important;
+
+    margin-bottom: 0 !important;
+
+    font-size: 13px !important;
+}
+
+
+/* =========================================
+   CELULAR
+   ========================================= */
+
+@media (max-width: 700px) {
+
+    .modal-overlay {
+        padding: 10px;
+    }
+
+
+    .modal {
+        max-height: calc(100vh - 20px);
+    }
+
+
+    .modal-conteudo {
+        padding: 35px 18px 20px;
+    }
+
+
+    .mapa-container {
+        height: 280px;
+    }
+
+
+    .modal-formulario {
+        width: 100%;
+
+        height: calc(100vh - 20px);
+
+        max-height: calc(100vh - 20px);
+    }
+
+
+    .formulario-conteudo {
+        padding: 35px 8px 8px;
+    }
+
+
+    .formulario-container {
+        border-radius: 6px;
+    }
+
+}
+
+/* =========================================
+   CONTADOR REGRESSIVO
+   ========================================= */
+
+.contador {
+    position: absolute;
+
+    /*
+     * POSIÇÃO DO CONTADOR NA ARTE 4
+     */
+
+    top: 39%;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 82%;
+
+    pointer-events: auto;
+}
+
+
+/* =========================================
+   GRUPO DO TEMPO
+   ========================================= */
+
+.tempo {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 8px;
+
+    text-align: center;
+}
+
+
+/* =========================================
+   CADA UNIDADE
+   ========================================= */
+
+.tempo-item {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+/* =========================================
+   NÚMEROS
+   ========================================= */
+
+.tempo-numero {
+    display: block;
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(
+        28px,
+        6vw,
+        44px
+    );
+
+    font-weight: normal;
+
+    line-height: 1;
+
+    color: #51351f;
+
+    font-variant-numeric:
+        tabular-nums;
+}
+
+
+/* =========================================
+   NOMES
+   ========================================= */
+
+.tempo-label {
+    display: block;
+
+    margin-top: 8px;
+
+    font-size: clamp(
+        10px,
+        2.5vw,
+        14px
+    );
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+
+    color: #51351f;
+}
+
+
+/* =========================================
+   CELULAR
+   ========================================= */
+
+@media (max-width: 700px) {
+
+    .contador {
+        width: 82%;
+
+        top: 20%;
+    }
+
+    .tempo {
+
+        gap: 5px;
+    }
+
+}
+
+ /* =========================================
+    CONTROLE DA MÚSICA
+    ========================================= */
+
+.controle-musica {
+    position: fixed;
+
+    top: 15px;
+    left: 15px;
+
+    z-index: 10000;
+
+    width: 42px;
+    height: 42px;
+
+    padding: 0;
+
+    border: 1px solid rgba(255, 255, 255, 0.45);
+
+    border-radius: 50%;
+
+    background: rgba(40, 30, 20, 0.38);
+
+    backdrop-filter: blur(4px);
+
+    -webkit-backdrop-filter: blur(4px);
+
+    color: rgba(255, 255, 255, 0.9);
+
+    font-size: 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    cursor: pointer;
+
+    opacity: 0.72;
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+
+/* =========================================
+   AO PASSAR O MOUSE
+   ========================================= */
+
+.controle-musica:hover {
+    opacity: 1;
+
+    background: rgba(40, 30, 20, 0.55);
+}
+
+
+/* =========================================
+   AO CLICAR
+   ========================================= */
+
+.controle-musica:active {
+    transform: scale(0.9);
+}
+
+
+/* =========================================
+   MÚSICA TOCANDO
+   ========================================= */
+
+.controle-musica.tocando {
+    animation: pulsar-musica 2s infinite;
+}
+
+
+@keyframes pulsar-musica {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.06);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+
+
+/* =========================================
+   CELULAR
+   ========================================= */
+
+@media (max-width: 700px) {
+
+    .controle-musica {
+        top: 12px;
+        right: 12px;
+
+        width: 38px;
+        height: 38px;
+
+        font-size: 18px;
+    }
+
+}

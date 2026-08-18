@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="description" content="Convite de casamento" />
+
+    <title>Thaissa & Wanderson</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+
+ <!-- =========================================
+         TELA DE ABERTURA DO CONVITE
+         ========================================= -->
+
+    <section
+        id="tela-envelope"
+        class="tela-envelope"
+        aria-label="Abrir convite de casamento"
+    >
+
+        <div class="envelope">
+
+            <!-- FOTO DO CASAL -->
+            <img
+                src="imagens/couple-hero.jpg"
+                class="hero-envelope"
+                alt="Thaissa e Wanderson"
+            >
+
+
+            <!-- TAMPA DO ENVELOPE -->
+            <button
+                id="abrir-convite"
+                class="tampa-envelope"
+                type="button"
+                aria-label="Abrir convite"
+            >
+
+                <img
+                    src="imagens/tampa_envelope.png"
+                    alt="Toque para abrir o convite"
+                >
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+ <!-- =========================================
+         MÚSICA DO CONVITE
+         ========================================= -->
+
+    <audio
+        id="musica-convite"
+        src="audio/audio.mp3"
+        loop
+        preload="auto"
+    ></audio>
+
+
+    <!-- =========================================
+         CONTROLE DA MÚSICA
+         ========================================= -->
+
+    <button
+        id="controle-musica"
+        class="controle-musica"
+        type="button"
+        aria-label="Pausar música"
+        aria-pressed="true"
+    >
+        <span id="icone-musica">♫</span>
+    </button>
+
+
+    <main class="convite">
+      <!-- =========================================
+             SEÇÃO 1 - HERO
+             ========================================= -->
+
+      <section class="pagina pagina-1" aria-label="Capa do convite">
+        <div class="conteudo-sobreposto">
+          <!-- Elementos futuros -->
+        </div>
+      </section>
+
+      <!-- =========================================
+             SEÇÃO 2
+             Fundo: imagem 2
+             Local reservado para o carrossel
+             ========================================= -->
+
+      <section class="pagina pagina-2" aria-label="Mensagem dos noivos">
+        <div class="conteudo-sobreposto">
+          <div class="carrossel"></div>
+        </div>
+      </section>
+
+      <!-- =========================================
+             SEÇÃO 3
+             Fundo: imagem 3
+             Local reservado para os botões
+             ========================================= -->
+
+      <section class="pagina pagina-3" aria-label="Informações do casamento">
+        <div class="conteudo-sobreposto">
+          <div class="botoes-convite">
+            <button
+              class="botao-convite"
+              id="botao-localizacao"
+              type="button"
+              aria-label="Ver localização"
+            >
+              <img src="imagens/button_local.png" alt="Localização" />
+            </button>
+
+            <button
+              class="botao-convite"
+              id="botao-presenca"
+              type="button"
+              aria-label="Confirmar presença"
+            >
+              <img
+                src="imagens/button_presencal.png"
+                alt="Confirmação de presença"
+              />
+            </button>
+
+            <button
+              class="botao-convite"
+              id="botao-presente"
+              type="button"
+              aria-label="Sugestão de presente"
+            >
+              <img
+                src="imagens/button_sugestiao.png"
+                alt="Sugestão de presente"
+              />
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================
+             SEÇÃO 4
+             Fundo: imagem 4
+             Local reservado para o contador
+             ========================================= -->
+
+      <!-- =========================================
+     SEÇÃO 4 - CONTAGEM REGRESSIVA
+     ========================================= -->
+
+      <section class="pagina pagina-4" aria-label="Contagem regressiva">
+        <div class="conteudo-sobreposto">
+          <div class="contador" id="contador">
+            <div class="tempo">
+              <div class="tempo-item">
+                <span class="tempo-numero" id="dias"> 00 </span>
+
+                <span class="tempo-label"> Dias </span>
+              </div>
+
+              <div class="tempo-item">
+                <span class="tempo-numero" id="horas"> 00 </span>
+
+                <span class="tempo-label"> Horas </span>
+              </div>
+
+              <div class="tempo-item">
+                <span class="tempo-numero" id="minutos"> 00 </span>
+
+                <span class="tempo-label"> Minutos </span>
+              </div>
+
+              <div class="tempo-item">
+                <span class="tempo-numero" id="segundos"> 00 </span>
+
+                <span class="tempo-label"> Segundos </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================
+     MODAIS DO CONVITE
+     ========================================= -->
+
+      <!-- =========================================
+     MODAL - LOCALIZAÇÃO
+     ========================================= -->
+
+      <div class="modal-overlay" id="modal-localizacao" aria-hidden="true">
+        <div
+          class="modal modal-localizacao"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="titulo-localizacao"
+        >
+          <button
+            class="modal-fechar"
+            type="button"
+            data-fechar="modal-localizacao"
+            aria-label="Fechar localização"
+          >
+            ×
+          </button>
+
+          <div class="modal-conteudo">
+            <h2 id="titulo-localizacao">Nossa cerimônia</h2>
+
+            <p class="modal-subtitulo">Capela de São José</p>
+
+            <p class="modal-endereco">Oiti · Pimenteiras - PI</p>
+
+            <div class="mapa-container">
+              <iframe
+                src="https://www.google.com/maps?q=Capela+de+São+José,+Oiti,+Pimenteiras,+PI&output=embed"
+                loading="lazy"
+                allowfullscreen
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Localização da Capela de São José"
+              >
+              </iframe>
+            </div>
+
+            <a
+              class="botao-mapa"
+              href="https://www.google.com/maps/search/?api=1&query=Capela+de+São+José,+Oiti,+Pimenteiras,+PI"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Abrir no Google Maps
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- =========================================
+     MODAL - CONFIRMAÇÃO DE PRESENÇA
+     ========================================= -->
+
+      <div class="modal-overlay" id="modal-presenca" aria-hidden="true">
+        <div
+          class="modal modal-formulario"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="titulo-presenca"
+        >
+          <button
+            class="modal-fechar"
+            type="button"
+            data-fechar="modal-presenca"
+            aria-label="Fechar confirmação de presença"
+          >
+            ×
+          </button>
+
+          <div class="modal-conteudo formulario-conteudo">
+            <h2 id="titulo-presenca">Confirme sua presença</h2>
+
+            <p class="modal-subtitulo">Será uma alegria ter você conosco.</p>
+
+            <div class="formulario-container">
+              <iframe
+                src="https://docs.google.com/forms/d/e/1FAIpQLScm0VvQRl4Rp49cEXmjXlqQB5ku0ThDMTOwFl0WdvsK4pR82Q/viewform?embedded=true"
+                title="Formulário de confirmação de presença"
+                loading="lazy"
+              >
+                Carregando…
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- =========================================
+     MODAL - SUGESTÃO DE PRESENTE
+     ========================================= -->
+
+      <div class="modal-overlay" id="modal-presente" aria-hidden="true">
+        <div
+          class="modal modal-presente"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="titulo-presente"
+        >
+          <button
+            class="modal-fechar"
+            type="button"
+            data-fechar="modal-presente"
+            aria-label="Fechar sugestão de presente"
+          >
+            ×
+          </button>
+
+          <div class="modal-conteudo">
+            <h2 id="titulo-presente">Sugestão de presente</h2>
+
+            <p>Sua presença é o nosso maior presente.</p>
+
+            <p>
+              Mas, se desejar nos presentear, você pode contribuir através do
+              PIX.
+            </p>
+
+            <div class="pix-container">
+              <br class="pix-label">             <strong id="chave-pix"> 09534503339 </strong> </br> Caixa Econômica Federal
+</br>Thaissa Maria de Sousa Oliveira </span>
+
+  
+            </div>
+
+            <button class="botao-copiar-pix" id="copiar-pix" type="button">
+              Copiar chave PIX
+            </button>
+
+            <p
+              class="mensagem-copiado"
+              id="mensagem-copiado"
+              aria-live="polite"
+            ></p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
