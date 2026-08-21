@@ -127,6 +127,8 @@
 
   <body>
 
+   
+
  <!-- =========================================
          TELA DE ABERTURA DO CONVITE
          ========================================= -->
@@ -363,6 +365,8 @@
      ========================================= -->
 
       <div class="modal-overlay" id="modal-presenca" aria-hidden="true">
+
+        
         <div
           class="modal modal-formulario"
           role="dialog"
@@ -377,6 +381,7 @@
           >
             ×
           </button>
+
 
           <div class="modal-conteudo formulario-conteudo">
             <h2 id="titulo-presenca">Confirme sua presença</h2>
@@ -396,6 +401,48 @@
         </div>
       </div>
 
+      <!-- FIM DO MODAL DE CONFIRMAÇÃO -->
+
+</div>
+
+
+<!-- =========================================
+     LEMBRETE DE CONFIRMAÇÃO
+     ========================================= -->
+
+<div
+    class="lembrete-overlay"
+    id="lembrete-confirmacao"
+    aria-hidden="true"
+>
+
+    <div
+        class="lembrete-confirmacao"
+        role="alertdialog"
+        aria-modal="true"
+        aria-labelledby="titulo-lembrete"
+    >
+
+        <h3 id="titulo-lembrete">
+            Confirmação de presença
+        </h3>
+
+        <p>
+            Para nos ajudar na organização desse dia tão especial,
+            pedimos, por gentileza, que confirme sua presença até
+            <strong>31 de outubro de 2026</strong>.
+        </p>
+
+        <button
+            type="button"
+            id="ok-lembrete-confirmacao"
+        >
+            OK, entendi
+        </button>
+
+    </div>
+
+</div>
       <!-- =========================================
      MODAL - SUGESTÃO DE PRESENTE
      ========================================= -->

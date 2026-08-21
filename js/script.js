@@ -470,9 +470,8 @@ if (botaoLocalizacao) {
     );
 }
 
-
 // ============================================================
-// BOTÃO CONFIRMAÇÃO
+// BOTÃO CONFIRMAÇÃO DE PRESENÇA
 // ============================================================
 
 const botaoPresenca =
@@ -480,12 +479,77 @@ const botaoPresenca =
         "botao-presenca"
     );
 
+const lembreteConfirmacao =
+    document.getElementById(
+        "lembrete-confirmacao"
+    );
 
-if (botaoPresenca) {
+const okLembreteConfirmacao =
+    document.getElementById(
+        "ok-lembrete-confirmacao"
+    );
+
+
+if (
+    botaoPresenca &&
+    lembreteConfirmacao
+) {
 
     botaoPresenca.addEventListener(
         "click",
         () => {
+
+            lembreteConfirmacao.classList.add(
+                "aberto"
+            );
+
+            lembreteConfirmacao.setAttribute(
+                "aria-hidden",
+                "false"
+            );
+
+
+            // Coloca o foco no botão OK
+
+            setTimeout(
+                () => {
+
+                    if (okLembreteConfirmacao) {
+
+                        okLembreteConfirmacao.focus();
+
+                    }
+
+                },
+                100
+            );
+
+        }
+    );
+}
+
+
+// ============================================================
+// BOTÃO OK DO LEMBRETE
+// ============================================================
+
+if (okLembreteConfirmacao) {
+
+    okLembreteConfirmacao.addEventListener(
+        "click",
+        () => {
+
+            lembreteConfirmacao.classList.remove(
+                "aberto"
+            );
+
+            lembreteConfirmacao.setAttribute(
+                "aria-hidden",
+                "true"
+            );
+
+
+            // Agora abre o formulário
 
             abrirModal(
                 "modal-presenca"
@@ -494,7 +558,6 @@ if (botaoPresenca) {
         }
     );
 }
-
 
 // ============================================================
 // BOTÃO SUGESTÃO DE PRESENTE

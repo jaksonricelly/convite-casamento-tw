@@ -1226,3 +1226,175 @@
     }
 
 }
+
+/* =========================================
+   LEMBRETE DE CONFIRMAÇÃO
+   ========================================= */
+
+.lembrete-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 30000;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(0, 0, 0, 0.60);
+
+    backdrop-filter: blur(4px);
+
+    -webkit-backdrop-filter: blur(4px);
+}
+
+
+/* =========================================
+   LEMBRETE ABERTO
+   ========================================= */
+
+.lembrete-overlay.aberto {
+
+    display: flex;
+}
+
+
+/* =========================================
+   CAIXA DO LEMBRETE
+   ========================================= */
+
+.lembrete-confirmacao {
+
+    width: min(
+        100%,
+        380px
+    );
+
+    padding: 28px 24px 22px;
+
+    border-radius: 12px;
+
+    background: #f7f2e8;
+
+    color: #51351f;
+
+    text-align: center;
+
+    box-shadow:
+        0 20px 60px
+        rgba(0, 0, 0, 0.35);
+
+    animation:
+        aparecerLembrete
+        0.25s ease;
+}
+
+
+/* =========================================
+   ANIMAÇÃO
+   ========================================= */
+
+@keyframes aparecerLembrete {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            scale(0.92)
+            translateY(10px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            scale(1)
+            translateY(0);
+    }
+}
+
+
+/* =========================================
+   TÍTULO
+   ========================================= */
+
+.lembrete-confirmacao h3 {
+
+    margin: 0 0 14px;
+
+    font-family: Georgia, serif;
+
+    font-size: 22px;
+
+    font-weight: normal;
+}
+
+
+/* =========================================
+   TEXTO
+   ========================================= */
+
+.lembrete-confirmacao p {
+
+    margin: 0;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+.lembrete-confirmacao strong {
+
+    font-weight: 700;
+}
+
+
+/* =========================================
+   BOTÃO OK
+   ========================================= */
+
+#ok-lembrete-confirmacao {
+
+    width: 100%;
+
+    min-height: 46px;
+
+    margin-top: 22px;
+
+    padding: 12px 20px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #5b3a22;
+
+    color: #fff;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
+}
+
+
+#ok-lembrete-confirmacao:active {
+
+    transform: scale(0.97);
+
+    opacity: 0.9;
+}
